@@ -1,8 +1,8 @@
 # Hi, I'm Vicky Wu 👋
 
-**律师 + 税务师 + 专利代理师 → AI 法律产品经理**
+**律师 + 税务师 + 专利代理师 ｜ 在做 AI 法律产品**
 
-我把十年的法律 / 税务 / 知识产权实务经验，翻译成了一套**可量化、可复现的 AI 质量评测与防护产品**。下面是我的转型作品集。
+我把十年的法律 / 税务 / 知识产权实务经验，翻译成了一套**可量化、可复现的 AI 质量评测与防护产品**。下面是我的作品集。
 
 ---
 
@@ -10,7 +10,7 @@
 
 | 仓库 | 角色 | 一句话 |
 | --- | --- | --- |
-| [🧱 legal-hallucination-bench](https://github.com/vickywu97/legal-hallucination-bench) | **地基 · 量化基准** | 离线、专家核验的中文法律引注幻觉基准（5 国产模型 × 23 陷阱题，HVI 33%–54%，8 法域逐字 EXACT 全 0%） |
+| [🧱 legal-hallucination-bench](https://github.com/vickywu97/legal-hallucination-bench) | **地基 · 量化基准** | 离线、专家核验的中文法律引注幻觉基准（5 国产模型 × 23 陷阱题，HVI 33.3%–54.2%，8 法域逐字 EXACT 全 0%） |
 | [🛡️ compliance-triangle](https://github.com/vickywu97/compliance-triangle) | **产品 · 合规助手** | 用同一套 verify 引擎，给每条 AI 法条引注盖 🟢🟡🔴 章（法律·税务·IP 三域合规） |
 
 ![作品集架构](https://raw.githubusercontent.com/vickywu97/legal-hallucination-bench/master/docs/portfolio_architecture.svg)
@@ -33,7 +33,7 @@
 ## 📊 关键数字（无可辩驳）
 
 - 测试规模：**5 国产模型 × 23 陷阱题 = 115 条**有效回答
-- 引注幻觉率 HVI（最宽松尺度）：**33%–54%**（连付费旗舰都不过半）
+- 引注幻觉率 HVI（最宽松尺度）：**33.3%–54.2%**（连付费旗舰都不过半）
 - 内容级 EXACT（逐字合规率）：**8 法域全部 0%**
 - 增值税法域（2026 新法）：**42 次引注，0 次 EXACT**
 
@@ -48,3 +48,5 @@
 ## 📫 联系
 
 欢迎 AI 法律 / 合规方向的团队交流：在任意仓库开 Issue，或通过 LinkedIn / 邮件联系。
+
+> 注：评测结果与数字随版本演进，最新以各仓库 README 为准；本页仅作作品集导航，不构成法律 / 税务 / 专利意见。
