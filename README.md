@@ -10,13 +10,13 @@
 
 | 仓库 | 角色 | 一句话 |
 | --- | --- | --- |
-| [🧱 legal-hallucination-bench](https://github.com/vickywu97/legal-hallucination-bench) | **地基 · 量化基准** | 离线、专家核验的中文法律引注幻觉基准（5 国产模型 × 23 陷阱题，HVI 33.3%–54.2%，8 法域逐字 EXACT 全 0%） |
+| [🧱 legal-hallucination-bench（私有仓库 · 需授权访问）](https://github.com/vickywu97/legal-hallucination-bench) | **地基 · 量化基准** | 离线、专家核验的中文法律引注幻觉基准（5 国产模型 × 23 陷阱题，HVI 33.3%–54.2%，8 法域逐字 EXACT 全 0%） |
 | [🛡️ compliance-triangle](https://github.com/vickywu97/compliance-triangle) | **产品 · 合规助手** | 用同一套 verify 引擎，给每条 AI 法条引注盖 🟢🟡🔴 章（法律·税务·IP 三域合规） |
 
-![作品集架构](https://raw.githubusercontent.com/vickywu97/legal-hallucination-bench/master/docs/portfolio_architecture.svg)
+![作品集架构](./portfolio_architecture.svg)
 
-> 📖 完整叙事 / 电梯演讲：[legal-hallucination-bench/docs/PORTFOLIO.md](https://github.com/vickywu97/legal-hallucination-bench/blob/master/docs/PORTFOLIO.md)
-> 💬 面试应答卡：[INTERVIEW_QA.md](https://github.com/vickywu97/legal-hallucination-bench/blob/master/docs/INTERVIEW_QA.md)
+> 📖 完整叙事 / 电梯演讲：[legal-hallucination-bench/docs/PORTFOLIO.md（私有仓库 · 需授权访问）](https://github.com/vickywu97/legal-hallucination-bench/blob/master/docs/PORTFOLIO.md)
+> 💬 面试应答卡：[INTERVIEW_QA.md（私有仓库 · 需授权访问）](https://github.com/vickywu97/legal-hallucination-bench/blob/master/docs/INTERVIEW_QA.md)
 
 ---
 
