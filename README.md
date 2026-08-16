@@ -47,6 +47,6 @@
 
 ## 📫 联系
 
-欢迎 AI 法律 / 合规方向的团队交流：在任意仓库开 Issue，或通过 LinkedIn / 邮件联系。
+欢迎 AI 法律 / 合规方向的团队交流：在 [compliance-triangle](https://github.com/vickywu97/compliance-triangle/issues) 开 Issue，或通过 LinkedIn / 邮件联系。
 
 > 注：评测结果与数字随版本演进，最新以各仓库 README 为准；本页仅作作品集导航，不构成法律 / 税务 / 专利意见。
