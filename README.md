@@ -28,8 +28,8 @@ I turn a decade of legal / tax / IP practice into AI-quality evaluation and guar
 - **税务师 Tax Adviser** —— 把增值税法 / 企税 / 个税优先纳入（多数法律 AI 评测不碰税法）。 / prioritizes tax law (most legal-AI evals avoid it).
 - **专利代理师 Patent Attorney** —— 职业习惯是"精确比对文本" → 与基准"一个字都不能差"同一思维。 / habit of precise text comparison → same mindset as "not one character off".
 
-同一人设计校验规则、定义陷阱、签署每一条 KB——这是任何纯工程 / 纯算法团队无法复制的壁垒。
-One person designs the rules, defines the traps, and signs every KB entry — a barrier no pure-engineering team can replicate.
+同一人设计校验规则、定义陷阱、具名核验每条 Tier A 法条（212 条）——这是任何纯工程 / 纯算法团队无法复制的壁垒。
+One person designs the rules, defines the traps, and attorney-signs every Tier A entry (212) — a barrier no pure-engineering team can replicate.
 
 ---
 
