@@ -14,8 +14,8 @@
   <g>
     <rect x="70" y="56" width="290" height="78" rx="8" fill="#f6f8fa" stroke="#d0d7de"/>
     <text x="84" y="82" font-size="13" font-weight="700" fill="#1f2328">🧱 verified-chinese-law-kb</text>
-    <text x="84" y="104" font-size="11" fill="#57606a">数据地基 · 2,327 条逐字核验 / 8 法</text>
-    <text x="84" y="120" font-size="11" fill="#57606a">Data foundation · attorney-signed modules</text>
+    <text x="84" y="104" font-size="11" fill="#57606a">数据地基 · 2,327 条官方全文 / 8 法</text>
+    <text x="84" y="120" font-size="11" fill="#57606a">Data foundation · 212 attorney-signed (Tier A)</text>
 
     <rect x="380" y="56" width="300" height="78" rx="8" fill="#f6f8fa" stroke="#d0d7de"/>
     <text x="394" y="82" font-size="13" font-weight="700" fill="#1f2328">🔬 law-citation-bench</text>
