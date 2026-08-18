@@ -12,9 +12,9 @@ I turn a decade of legal / tax / IP practice into AI-quality evaluation and guar
 
 | 仓库 Repo | 角色 Role | 一句话 One-liner |
 | --- | --- | --- |
-| [🧱 verified-chinese-law-kb](https://github.com/vickywu97/verified-chinese-law-kb) | **数据地基 · Data foundation** | 8 部法律、**2,327 条**逐字核验法条，律师具名、可独立下载模块 / 2,327 line-by-line verified articles across 8 laws, attorney-signed, independently downloadable. |
+| [🧱 verified-chinese-law-kb](https://github.com/vickywu97/verified-chinese-law-kb) | **数据地基 · Data foundation** | 8 部法律、**2,327 条**逐字核验法条（M1 民法典 **1,260 条**由律师具名签核）、可独立下载模块 / 2,327 line-by-line verified articles (M1 Civil Code 1,260 attorney-signed) across 8 laws, independently downloadable. |
 | [🔬 law-citation-bench](https://github.com/vickywu97/law-citation-bench) | **评测地基 · Eval foundation** | 离线零依赖基准，500 题量化法条引用准确率；一行提示词修复回收 **+97 分** / offline stdlib benchmark, 500 Q, a one-line prompt fix recovered +97 pts. |
-| [📉 legal-hallucination-bench](https://github.com/vickywu97/legal-hallucination-bench) *(私有 · private)* | **量化基准 · Quantification** | 5 国产模型 × 23 陷阱题，HVI **33.3%–54.2%**，8 法域逐字 EXACT 全 0% / 5 models × 23 traps, HVI 33.3–54.2%, 8 laws EXACT all 0%. |
+| [📉 legal-hallucination-bench](https://github.com/vickywu97/legal-hallucination-bench) *(私有 · private)* | **量化基准 · Quantification** | 5 国产模型 × 23 陷阱题，HVI **33.3%–54.2%**，8 法域逐字 EXACT 全 0%；ground truth **2,327** 节点含 **212** 个 Tier A 专家逐条签核节点 / 5 models × 23 traps, HVI 33.3–54.2%, 8 laws EXACT all 0%; ground truth 2,327 nodes incl. 212 Tier A attorney-signed. |
 | [🛡️ compliance-triangle](https://github.com/vickywu97/compliance-triangle) | **产品 · Product** | 同一套 verify 引擎给每条 AI 引注盖 🟢🟡🔴 章（法律·税务·IP 三域）/ same verify engine → 🟢🟡🔴 stamps across legal·tax·IP. |
 | [📡 legal-ai-watch](https://github.com/vickywu97/legal-ai-watch) | **公开榜单 · Public leaderboard** | 31 题公开评测 + gh-pages 仪表盘，跟踪主流模型法条引用表现 / 31-Q public eval + live dashboard. |
 
