@@ -14,8 +14,8 @@
   <g>
     <rect x="70" y="56" width="290" height="78" rx="8" fill="#f6f8fa" stroke="#d0d7de"/>
     <text x="84" y="82" font-size="13" font-weight="700" fill="#1f2328">🧱 verified-chinese-law-kb</text>
-    <text x="84" y="104" font-size="11" fill="#57606a">数据地基 · 2,327 条官方全文 / 8 法</text>
-    <text x="84" y="120" font-size="11" fill="#57606a">Data foundation · 212 attorney-signed (Tier A)</text>
+    <text x="84" y="104" font-size="11" fill="#57606a">数据地基 · 2,327 条逐字核验 / 8 法</text>
+    <text x="84" y="120" font-size="11" fill="#57606a">Data foundation · attorney-signed modules</text>
 
     <rect x="380" y="56" width="300" height="78" rx="8" fill="#f6f8fa" stroke="#d0d7de"/>
     <text x="394" y="82" font-size="13" font-weight="700" fill="#1f2328">🔬 law-citation-bench</text>
@@ -55,7 +55,7 @@
   <g>
     <rect x="70" y="376" width="610" height="46" rx="8" fill="#eef0f3" stroke="#d0d7de"/>
     <text x="375" y="398" text-anchor="middle" font-size="12" font-weight="700" fill="#1f2328">🛡️ 护城河 · 三证合一 Moat</text>
-    <text x="375" y="414" text-anchor="middle" font-size="11" fill="#57606a">律师 + 税务师 + 专利代理师 — 同一人设计规则·定义陷阱·具名核验 Tier A</text>
+    <text x="375" y="414" text-anchor="middle" font-size="11" fill="#57606a">律师 + 税务师 + 专利代理师 — 同一人设计规则·定义陷阱·签署 KB</text>
   </g>
 
   <defs>

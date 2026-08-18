@@ -12,7 +12,7 @@ I turn a decade of legal / tax / IP practice into AI-quality evaluation and guar
 
 | 仓库 Repo | 角色 Role | 一句话 One-liner |
 | --- | --- | --- |
-| [🧱 verified-chinese-law-kb](https://github.com/vickywu97/verified-chinese-law-kb) | **数据地基 · Data foundation** | 8 部法律、**2,327 条**逐字官方全文（含 212 条专家具名核验 Tier A）· 可独立下载模块 / 2,327 articles verbatim from official sources (incl. 212 attorney-signed Tier A) · independently downloadable. |
+| [🧱 verified-chinese-law-kb](https://github.com/vickywu97/verified-chinese-law-kb) | **数据地基 · Data foundation** | 8 部法律、**2,327 条**逐字核验法条，律师具名、可独立下载模块 / 2,327 line-by-line verified articles across 8 laws, attorney-signed, independently downloadable. |
 | [🔬 law-citation-bench](https://github.com/vickywu97/law-citation-bench) | **评测地基 · Eval foundation** | 离线零依赖基准，500 题量化法条引用准确率；一行提示词修复回收 **+97 分** / offline stdlib benchmark, 500 Q, a one-line prompt fix recovered +97 pts. |
 | [📉 legal-hallucination-bench](https://github.com/vickywu97/legal-hallucination-bench) *(私有 · private)* | **量化基准 · Quantification** | 5 国产模型 × 23 陷阱题，HVI **33.3%–54.2%**，8 法域逐字 EXACT 全 0% / 5 models × 23 traps, HVI 33.3–54.2%, 8 laws EXACT all 0%. |
 | [🛡️ compliance-triangle](https://github.com/vickywu97/compliance-triangle) | **产品 · Product** | 同一套 verify 引擎给每条 AI 引注盖 🟢🟡🔴 章（法律·税务·IP 三域）/ same verify engine → 🟢🟡🔴 stamps across legal·tax·IP. |
@@ -28,8 +28,8 @@ I turn a decade of legal / tax / IP practice into AI-quality evaluation and guar
 - **税务师 Tax Adviser** —— 把增值税法 / 企税 / 个税优先纳入（多数法律 AI 评测不碰税法）。 / prioritizes tax law (most legal-AI evals avoid it).
 - **专利代理师 Patent Attorney** —— 职业习惯是"精确比对文本" → 与基准"一个字都不能差"同一思维。 / habit of precise text comparison → same mindset as "not one character off".
 
-同一人设计校验规则、定义陷阱、具名核验每条 Tier A 法条（212 条）——这是任何纯工程 / 纯算法团队无法复制的壁垒。
-One person designs the rules, defines the traps, and attorney-signs every Tier A entry (212) — a barrier no pure-engineering team can replicate.
+同一人设计校验规则、定义陷阱、签署每一条 KB——这是任何纯工程 / 纯算法团队无法复制的壁垒。
+One person designs the rules, defines the traps, and signs every KB entry — a barrier no pure-engineering team can replicate.
 
 ---
 
@@ -38,7 +38,7 @@ One person designs the rules, defines the traps, and attorney-signs every Tier A
 - 测试规模 Scale：**5 国产模型 × 23 陷阱题 = 115 条**有效回答 / 115 valid responses.
 - 引注幻觉率 HVI（最宽松尺度）：**33.3%–54.2%**（连付费旗舰都不过半）/ even paid flagships fail half.
 - 内容级 EXACT（逐字合规率）：**8 法域全部 0%** / 8 laws all 0% exact match.
-- 知识库 KB：**2,327 条**逐字官方全文（其中 212 条专家具名核验 Tier A）· **8 部法律** / KB: 2,327 articles verbatim from official sources (212 attorney-signed Tier A) · 8 laws.
+- 知识库 KB：**2,327 条**逐字核验法条 · **8 部法律** / KB: 2,327 verified articles · 8 laws.
 - 评测基准 Benchmark：**500 题**确定性生成，T1 接地 / T2 检索 / T3 幻觉 / 500 deterministic questions.
 
 ---
