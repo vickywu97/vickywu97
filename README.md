@@ -20,6 +20,9 @@ I turn six years of legal / tax / IP practice into AI-quality evaluation and gua
 
 ![作品集架构](./portfolio_architecture.svg)
 
+> 🛡️ **产品实测截图**（compliance-triangle · 给每条 AI 引注盖 🟢🟡🔴 章）：
+> ![合规三角 AI 引注三层校验演示](https://raw.githubusercontent.com/vickywu97/compliance-triangle/master/docs/dashboard_preview.png)
+
 ---
 
 ## 🛡️ 护城河（三证合一）· Moat — triple qualification
@@ -47,7 +50,7 @@ One person designs the rules, defines the traps, and signs every KB entry — a 
 **B. 公开榜单 `legal-ai-watch`（常规引注监测集 · 周更）**
 - **31 题**常规引注评测，当前参评 **3 模型**（DeepSeek-R1 / Qwen-Max / GLM-4）/ 31-Q routine eval, 3 models.
 - 引注幻觉率 HVI：**5%–11%**，覆盖率 **92%**（详见 [gh-pages 看板](https://vickywu97.github.io/legal-ai-watch)）/ HVI 5–11%, coverage 92% — see live dashboard.
-- 法域已扩展至数据合规（PIPL / 数据安全法）、竞争法（反不正当竞争法）等 / now spans data-compliance & competition law.
+- 法域覆盖民法 / 刑法 / 公司法 / 专利 / 税法，并新增数据合规（PIPL / 数据安全法）、竞争法（反不正当竞争法），共 **7 个法域** / spans 7 domains incl. data-compliance & competition law.
 
 > 口径说明：A 是**故意挖坑**的对抗集（旧法陷阱 / 张冠李戴 / 不存在条号），专测难例可靠性；B 是**常规事实引注**监测，测日常可用性。模型在 B 上尚可，≠ 在 A 的陷阱前安全——二者互补。
 
