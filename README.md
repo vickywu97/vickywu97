@@ -52,8 +52,8 @@ One person designs the rules, defines the traps, and signs every KB entry — a 
 
 ## 📫 联系 · Reach me
 
-欢迎 AI 法律 / 合规方向的团队交流：在任意仓库开 Issue，或通过 LinkedIn / 邮件联系。
-Open to AI-legal / compliance roles — open an Issue on any repo, or reach me via LinkedIn / email.
+欢迎 AI 法律 / 合规方向的团队交流 —— **LinkedIn** [linkedin.com/in/wuyitong](https://www.linkedin.com/in/wuyitong) · **邮箱** [vickywu97@163.com](mailto:vickywu97@163.com) · 或在任意仓库开 Issue。
+**Open to:** AI 法律产品经理 / 法律合规 / 税务 / 专利（远程优先）— LinkedIn [in/wuyitong](https://www.linkedin.com/in/wuyitong) · [vickywu97@163.com](mailto:vickywu97@163.com) · 或开 Issue。
 
 > 注：评测结果与数字随版本演进，最新以各仓库 README 为准；本页仅作作品集导航，不构成法律 / 税务 / 专利意见。
 > Numbers evolve with versions; latest per-repo READMEs are authoritative. This page is navigation only, not legal / tax / patent advice.
