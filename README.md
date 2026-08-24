@@ -8,13 +8,13 @@ I turn six years of legal / tax / IP practice into AI-quality evaluation and gua
 
 ---
 
-## 📦 作品集（5 个仓库 · 4 公开 1 私有）· Portfolio — 5 repos (4 public · 1 private)
+## 📦 作品集（5 个仓库 · 全部公开）· Portfolio — 5 repos (all public)
 
 | 仓库 Repo | 角色 Role | 一句话 One-liner |
 | --- | --- | --- |
 | [🧱 verified-chinese-law-kb](https://github.com/vickywu97/verified-chinese-law-kb) | **数据地基 · Data foundation** | 8 部法律、**2,327 条**逐字核验法条（M1 民法典 **1,260 条**全文，其中 27 条为律师抽核逐条签核初版，其余由 AI 核验）、可独立下载模块 / 2,327 line-by-line verified articles (M1 Civil Code: 1,260 full-text; 27 attorney spot-checked & line-by-line signed in the initial batch, the rest AI-verified) across 8 laws, independently downloadable. |
 | [🔬 law-citation-bench](https://github.com/vickywu97/law-citation-bench) | **评测地基 · Eval foundation** | 离线零依赖基准，500 题量化法条引用准确率；一行提示词修复回收 **+97 分** / offline stdlib benchmark, 500 Q, a one-line prompt fix recovered +97 pts. |
-| [📉 legal-hallucination-bench](https://github.com/vickywu97/legal-hallucination-bench) *(私有 · private)* | **量化基准 · Quantification** | 5 国产模型 × 23 陷阱题，HVI **33.3%–54.2%**，8 法域逐字 EXACT 全 0%；ground truth **2,327** 节点含 **212** 个 Tier A 专家逐条签核节点 / 5 models × 23 traps, HVI 33.3–54.2%, 8 laws EXACT all 0%; ground truth 2,327 nodes incl. 212 Tier A attorney-signed. |
+| [📉 legal-hallucination-bench](https://github.com/vickywu97/legal-hallucination-bench) | **量化基准 · Quantification** | 5 国产模型 × 23 陷阱题，HVI **33.3%–54.2%**，8 法域逐字 EXACT 全 0%；ground truth **2,327** 节点含 **212** 个 Tier A 专家逐条签核节点 / 5 models × 23 traps, HVI 33.3–54.2%, 8 laws EXACT all 0%; ground truth 2,327 nodes incl. 212 Tier A attorney-signed. |
 | [🛡️ compliance-triangle](https://github.com/vickywu97/compliance-triangle) | **产品 · Product** | 同一套 verify 引擎给每条 AI 引注盖 🟢🟡🔴 章（法律·税务·IP 三域）/ same verify engine → 🟢🟡🔴 stamps across legal·tax·IP. |
 | [📡 legal-ai-watch](https://github.com/vickywu97/legal-ai-watch) | **公开榜单 · Public leaderboard** | 31 题公开评测 + [gh-pages 看板](https://vickywu97.github.io/legal-ai-watch)（演示数据），跟踪主流模型法条引用表现 / 31-Q public eval + [live dashboard](https://vickywu97.github.io/legal-ai-watch) (demo data). |
 
@@ -35,11 +35,21 @@ One person designs the rules, defines the traps, and signs every KB entry — a 
 
 ## 📊 关键数字（无可辩驳）· Key numbers
 
-- 测试规模 Scale：**5 国产模型 × 23 陷阱题 = 115 条**有效回答 / 115 valid responses.
+两套互补量尺，口径不同、不可混为一谈：
+
+**A. 量化基准 `legal-hallucination-bench`（对抗陷阱集）**
+- 规模 Scale：**5 国产模型 × 23 陷阱题 = 115 条**有效回答 / 115 valid responses.
 - 引注幻觉率 HVI（最宽松尺度）：**33.3%–54.2%**（连付费旗舰都不过半）/ even paid flagships fail half.
 - 内容级 EXACT（逐字合规率）：**8 法域全部 0%** / 8 laws all 0% exact match.
 - 知识库 KB：**2,327 条**逐字核验法条 · **8 部法律** / KB: 2,327 verified articles · 8 laws.
-- 评测基准 Benchmark：**500 题**确定性生成，T1 接地 / T2 检索 / T3 幻觉 / 500 deterministic questions.
+- 评测地基 `law-citation-bench`：离线零依赖、**500 题**确定性生成基准（一行提示词修复回收 +97 分）/ offline stdlib, 500 Q.
+
+**B. 公开榜单 `legal-ai-watch`（常规引注监测集 · 周更）**
+- **31 题**常规引注评测，当前参评 **3 模型**（DeepSeek-R1 / Qwen-Max / GLM-4）/ 31-Q routine eval, 3 models.
+- 引注幻觉率 HVI：**5%–11%**，覆盖率 **92%**（详见 [gh-pages 看板](https://vickywu97.github.io/legal-ai-watch)）/ HVI 5–11%, coverage 92% — see live dashboard.
+- 法域已扩展至数据合规（PIPL / 数据安全法）、竞争法（反不正当竞争法）等 / now spans data-compliance & competition law.
+
+> 口径说明：A 是**故意挖坑**的对抗集（旧法陷阱 / 张冠李戴 / 不存在条号），专测难例可靠性；B 是**常规事实引注**监测，测日常可用性。模型在 B 上尚可，≠ 在 A 的陷阱前安全——二者互补。
 
 ---
 
