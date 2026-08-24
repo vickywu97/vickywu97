@@ -16,7 +16,7 @@ I turn six years of legal / tax / IP practice into AI-quality evaluation and gua
 | [🔬 law-citation-bench](https://github.com/vickywu97/law-citation-bench) | **评测地基 · Eval foundation** | 离线零依赖基准，500 题量化法条引用准确率；一行提示词修复回收 **+97 分** / offline stdlib benchmark, 500 Q, a one-line prompt fix recovered +97 pts. |
 | [📉 legal-hallucination-bench](https://github.com/vickywu97/legal-hallucination-bench) *(私有 · private)* | **量化基准 · Quantification** | 5 国产模型 × 23 陷阱题，HVI **33.3%–54.2%**，8 法域逐字 EXACT 全 0%；ground truth **2,327** 节点含 **212** 个 Tier A 专家逐条签核节点 / 5 models × 23 traps, HVI 33.3–54.2%, 8 laws EXACT all 0%; ground truth 2,327 nodes incl. 212 Tier A attorney-signed. |
 | [🛡️ compliance-triangle](https://github.com/vickywu97/compliance-triangle) | **产品 · Product** | 同一套 verify 引擎给每条 AI 引注盖 🟢🟡🔴 章（法律·税务·IP 三域）/ same verify engine → 🟢🟡🔴 stamps across legal·tax·IP. |
-| [📡 legal-ai-watch](https://github.com/vickywu97/legal-ai-watch) | **公开榜单 · Public leaderboard** | 31 题公开评测 + gh-pages 仪表盘，跟踪主流模型法条引用表现 / 31-Q public eval + live dashboard. |
+| [📡 legal-ai-watch](https://github.com/vickywu97/legal-ai-watch) | **公开榜单 · Public leaderboard** | 31 题公开评测 + [gh-pages 看板](https://vickywu97.github.io/legal-ai-watch)（演示数据），跟踪主流模型法条引用表现 / 31-Q public eval + [live dashboard](https://vickywu97.github.io/legal-ai-watch) (demo data). |
 
 ![作品集架构](./portfolio_architecture.svg)
 
@@ -40,6 +40,15 @@ One person designs the rules, defines the traps, and signs every KB entry — a 
 - 内容级 EXACT（逐字合规率）：**8 法域全部 0%** / 8 laws all 0% exact match.
 - 知识库 KB：**2,327 条**逐字核验法条 · **8 部法律** / KB: 2,327 verified articles · 8 laws.
 - 评测基准 Benchmark：**500 题**确定性生成，T1 接地 / T2 检索 / T3 幻觉 / 500 deterministic questions.
+
+---
+
+## 🧩 其他作品 · Other builds
+
+- **Excel 大师系列** —— 单一权威生成入口 `regen_*.py`，覆盖**公司治理模板生成**与**增值税进项税抵扣审核**；沉淀"找错纠错 + 逐行正确值"范式（平台合规检测"数学正确 / 场景设定"内核）。
+  Excel Master series — single canonical `regen_*.py` generator for **corporate-governance templates** & **VAT input-tax deduction audit**; the "find-the-error + per-row correct value" pattern.
+- **CIPP/E 备考体系** —— 已系统学习 IAPP **CIPP/E（欧盟数据保护）** 体系；相关真题 / 刷题题库不公开。
+  CIPP/E prep — studied IAPP **CIPP/E (EU data protection)** system; question bank not public.
 
 ---
 
