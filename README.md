@@ -8,15 +8,15 @@ I turn six years of legal / tax / IP practice into AI-quality evaluation and gua
 
 ---
 
-## 📦 作品集（5 个仓库 · 全部公开）· Portfolio — 5 repos (all public)
+## 📦 作品集（5 个仓库 · 4 公开 + 1 私有）· Portfolio — 5 repos (4 public + 1 private)
 
 | 仓库 Repo | 角色 Role | 一句话 One-liner |
 | --- | --- | --- |
 | [🧱 verified-chinese-law-kb](https://github.com/vickywu97/verified-chinese-law-kb) | **数据地基 · Data foundation** | 8 部法律、**2,327 条**逐字核验法条（M1 民法典 **1,260 条**全文，其中 27 条为律师抽核逐条签核初版，其余由 AI 核验）、可独立下载模块 / 2,327 line-by-line verified articles (M1 Civil Code: 1,260 full-text; 27 attorney spot-checked & line-by-line signed in the initial batch, the rest AI-verified) across 8 laws, independently downloadable. |
 | [🔬 law-citation-bench](https://github.com/vickywu97/law-citation-bench) | **评测地基 · Eval foundation** | 离线零依赖基准，500 题量化法条引用准确率；一行提示词修复回收 **+97 分** / offline stdlib benchmark, 500 Q, a one-line prompt fix recovered +97 pts. |
-| [📉 legal-hallucination-bench](https://github.com/vickywu97/legal-hallucination-bench) | **量化基准 · Quantification** | 5 国产模型 × 23 陷阱题，HVI **33.3%–54.2%**，8 法域逐字 EXACT 全 0%；ground truth **2,327** 节点含 **212** 个 Tier A 专家逐条签核节点 / 5 models × 23 traps, HVI 33.3–54.2%, 8 laws EXACT all 0%; ground truth 2,327 nodes incl. 212 Tier A attorney-signed. |
+| [📉 legal-hallucination-bench](https://github.com/vickywu97/legal-hallucination-bench) _(私有仓库 · 需授权访问 · Private — access on request)_ | **量化基准 · Quantification** | 5 国产模型 × 23 陷阱题，HVI **33.3%–54.2%**，8 法域逐字 EXACT 全 0%；ground truth **2,327** 节点含 **212** 个 Tier A 专家逐条签核节点 / 5 models × 23 traps, HVI 33.3–54.2%, 8 laws EXACT all 0%; ground truth 2,327 nodes incl. 212 Tier A attorney-signed. |
 | [🛡️ compliance-triangle](https://github.com/vickywu97/compliance-triangle) | **产品 · Product** | 同一套 verify 引擎给每条 AI 引注盖 🟢🟡🔴 章（法律·税务·IP 三域）/ same verify engine → 🟢🟡🔴 stamps across legal·tax·IP. |
-| [📡 legal-ai-watch](https://github.com/vickywu97/legal-ai-watch) | **公开榜单 · Public leaderboard** | 31 题公开评测 + [gh-pages 看板](https://vickywu97.github.io/legal-ai-watch)（演示数据），跟踪主流模型法条引用表现 / 31-Q public eval + [live dashboard](https://vickywu97.github.io/legal-ai-watch) (demo data). |
+| [📡 legal-ai-watch](https://github.com/vickywu97/legal-ai-watch) | **公开榜单 · Public leaderboard** | 31 题公开评测 + [gh-pages 看板](https://vickywu97.github.io/legal-ai-watch)（演示数据 · github.io 国内可能不可达 / may be unreachable in mainland China），跟踪主流模型法条引用表现 / 31-Q public eval + [live dashboard](https://vickywu97.github.io/legal-ai-watch) (demo data · github.io may be unreachable in CN). |
 
 ![作品集架构](./portfolio_architecture.svg)
 
@@ -49,7 +49,7 @@ One person designs the rules, defines the traps, and signs every KB entry — a 
 
 **B. 公开榜单 `legal-ai-watch`（常规引注监测集 · 周更）**
 - **31 题**常规引注评测，当前参评 **3 模型**（DeepSeek-R1 / Qwen-Max / GLM-4）/ 31-Q routine eval, 3 models.
-- 引注幻觉率 HVI：**5%–11%**，覆盖率 **92%**（详见 [gh-pages 看板](https://vickywu97.github.io/legal-ai-watch)）/ HVI 5–11%, coverage 92% — see live dashboard.
+- 引注幻觉率 HVI：**5%–11%**，覆盖率 **92%**（详见 [gh-pages 看板](https://vickywu97.github.io/legal-ai-watch) · github.io 国内可能不可达）/ HVI 5–11%, coverage 92% — see live dashboard (github.io may be unreachable in mainland China).
 - 法域覆盖民法 / 刑法 / 公司法 / 专利 / 税法，并新增数据合规（PIPL / 数据安全法）、竞争法（反不正当竞争法），共 **7 个法域** / spans 7 domains incl. data-compliance & competition law.
 
 > 口径说明：A 是**故意挖坑**的对抗集（旧法陷阱 / 张冠李戴 / 不存在条号），专测难例可靠性；B 是**常规事实引注**监测，测日常可用性。模型在 B 上尚可，≠ 在 A 的陷阱前安全——二者互补。
@@ -69,6 +69,40 @@ One person designs the rules, defines the traps, and signs every KB entry — a 
 
 `Python 标准库` · `离线零依赖` · `可复现评测` · `LLM 评测` · `法律 AI` · `税务合规` · `知识产权` · `产品设计`
 `Python stdlib` · `offline-zero-dep` · `reproducible eval` · `LLM evaluation` · `legal AI` · `tax compliance` · `IP` · `product design`
+
+---
+
+## 📄 简历 / Resume
+
+<details>
+<summary>展开查看完整简历 · Click to expand the full resume</summary>
+
+**Vicky Wu · 律师 / 税务师 / 专利代理师（中国）**
+目标方向：AI 法律产品经理 · 法律合规 · 税务 · 专利（远程优先）
+
+**专业概述**
+六年法律 / 税务 / 知识产权实务经验，现转型 AI 法律产品与合规。开源作品证明：不只是会调 prompt，更能**定义并量化 AI 在法律场景的质量**——从逐字核验的法条真值库，到离线评测基准（一个提示词改动把模型幻觉盲区从 0 拉到 0.97），再到每周自动监测排行榜与带门禁的合规产品。
+
+**核心项目**
+- **verified-chinese-law-kb**（数据地基）：8 部法律、2,327 条逐字核验法条，模块化、带版本轴、可独立下载；M1 民法典由执业律师具名签署。
+- **law-citation-bench**（评测地基）：离线零依赖、500 题确定性基准，量化 LLM 法条引用准确率；一行提示词修复为 Qwen 回收 **+97 分**。
+- **legal-hallucination-bench**（量化基准 · 私有）：5 国产模型 × 23 陷阱题，HVI **33.3%–54.2%**，8 法域逐字 EXACT 全 0%。
+- **compliance-triangle**（产品）：同一 verify 引擎给每条 AI 引注盖 🟢🟡🔴 章（法律·税务·IP 三域）。
+- **legal-ai-watch**（公开榜单）：31 题周更评测 + 看板（演示数据）。
+
+**其他作品**
+- Excel 大师系列：公司治理模板生成 + 增值税进项税抵扣审核（单一 `regen_*.py` 生成入口）。
+- CIPP/E 备考体系：系统学习 IAPP 欧盟数据保护体系（题库不公开）。
+
+**技能**
+Python 标准库 · 离线零依赖 · 可复现评测 · LLM 评测 · 法律 AI · 税务合规 · 知识产权 · 产品设计。
+
+**联系**
+LinkedIn：[in/wuyitong](https://www.linkedin.com/in/wuyitong) · 邮箱：[vickywu97@163.com](mailto:vickywu97@163.com)
+
+</details>
+
+也可下载排版版简历：[cv.html](./cv.html)（打印友好 / print-friendly）。
 
 ---
 

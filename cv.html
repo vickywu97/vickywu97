@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vicky Wu · CV — Lawyer / Tax Adviser / Patent Attorney → AI Legal Product</title>
+<style>
+  :root{
+    --ink:#16202e; --muted:#5b6b7e; --line:#e4e9f0; --accent:#1d4ed8;
+    --accent-soft:#e8f0fe; --bg:#ffffff; --soft:#f6f8fb;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    line-height:1.55;-webkit-font-smoothing:antialiased;font-size:15px}
+  .page{max-width:820px;margin:0 auto;padding:46px 40px}
+  header{border-bottom:3px solid var(--accent);padding-bottom:18px;margin-bottom:22px}
+  h1{font-size:30px;margin:0 0 4px;font-weight:800;letter-spacing:-.01em}
+  .role{font-size:15.5px;color:var(--accent);font-weight:700;margin:0 0 8px}
+  .contact{font-size:13.5px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 18px}
+  .contact a{color:var(--accent);text-decoration:none}
+  .contact a:hover{text-decoration:underline}
+  h2{font-size:18px;margin:26px 0 10px;font-weight:800;letter-spacing:-.01em;
+    display:flex;align-items:center;gap:8px}
+  h2:before{content:"";width:6px;height:18px;background:var(--accent);border-radius:2px;display:inline-block}
+  h3{font-size:15px;margin:14px 0 3px;font-weight:700}
+  p{margin:6px 0}
+  .summary{background:var(--soft);border-left:3px solid var(--accent);border-radius:8px;
+    padding:14px 16px;font-size:14.5px;color:#33414f}
+  .proj{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0}
+  .proj .tag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--accent);
+    background:var(--accent-soft);border-radius:6px;padding:2px 8px;margin-bottom:6px}
+  ul{margin:6px 0;padding-left:20px}
+  li{margin:4px 0;font-size:14px}
+  .skills{display:flex;flex-wrap:wrap;gap:7px}
+  .skills span{background:var(--soft);border:1px solid var(--line);border-radius:20px;
+    padding:4px 11px;font-size:13px;color:#33414f}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  footer{margin-top:30px;border-top:1px solid var(--line);padding-top:14px;
+    font-size:12.5px;color:var(--muted)}
+  @media print{
+    body{font-size:12px}
+    .page{padding:0 8px;max-width:none}
+    .proj,.summary{break-inside:avoid}
+    a{color:var(--ink);text-decoration:none}
+    header{border-bottom-color:var(--ink)}
+    h2:before{background:var(--ink)}
+  }
+  @media(max-width:640px){.cols{grid-template-columns:1fr}.page{padding:30px 20px}}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <h1>Vicky Wu</h1>
+    <p class="role">律师 · 税务师 · 专利代理师（China） &nbsp;→&nbsp; AI Legal-Product &amp; Compliance</p>
+    <div class="contact">
+      <span>📍 Remote-first · open to AI-legal / compliance / tax / patent roles</span>
+      <a href="https://www.linkedin.com/in/wuyitong">LinkedIn: in/wuyitong</a>
+      <a href="mailto:vickywu97@163.com">vickywu97@163.com</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>Professional Summary</h2>
+    <div class="summary">
+      Licensed <b>lawyer, tax adviser, and patent attorney</b> with <b>six years</b> of legal / tax / IP
+      practice, now transitioning into AI legal-product and compliance roles. My open-source work shows I can
+      do more than prompt an LLM — I can <b>define and measure its quality</b>: from a line-by-line verified
+      statutory corpus, to an offline benchmark that proved a one-line prompt fix recovered <b>+97 points</b>
+      of citation-accuracy on Qwen, to a weekly auto-monitoring leaderboard and a guardrail product that
+      stamps every AI citation 🟢🟡🔴. The signal: deep legal / tax / patent domain expertise <i>plus</i> the
+      ability to ship runnable, quantified AI-evaluation tooling.
+    </div>
+  </section>
+
+  <section>
+    <h2>Core Projects</h2>
+
+    <div class="proj">
+      <span class="tag">Data Foundation</span>
+      <h3>verified-chinese-law-kb</h3>
+      <ul>
+        <li>Built and open-sourced a <b>modular, versioned knowledge base of 2,327 line-by-line verified
+          Chinese statutory articles</b> across 8 laws (Civil Code 1,260; Company Law 266; Criminal Law 505;
+          Tax Administration 94; VAT 38; Corporate IIT 60; Individual IIT 22; Patent Law 82).</li>
+        <li>Each law shipped as an <b>independently downloadable module with a version axis</b>
+          (hash-verified) for direct RAG / evaluation use — not another scraped-law dump.</li>
+        <li>M1 Civil Code is <b>attorney-signed</b> (licensed lawyer / tax adviser / patent attorney);
+          remaining articles AI-verified against the official source.</li>
+      </ul>
+    </div>
+
+    <div class="proj">
+      <span class="tag">Eval Foundation</span>
+      <h3>law-citation-bench</h3>
+      <ul>
+        <li>Designed and shipped an <b>offline, standard-library-only benchmark (zero pip install, Python ≥ 3.8)</b>
+          quantifying LLM legal-citation accuracy across 3 tasks (grounding / retrieval / hallucination) over a
+          <b>500-question deterministically generated dataset</b>.</li>
+        <li>Evaluated <b>3 major Chinese LLMs (Qwen, DeepSeek, GLM; Kimi benchmarked in v1)</b> and published a
+          leaderboard that discriminates good from bad models (random baseline 0.066 vs top model 0.50+).</li>
+        <li><b>Diagnosed and fixed a prompt-design blind spot:</b> adding each law's article count lifted Qwen's
+          T3 "out-of-range" detection from <b>0.0000 → 0.9697 (+97 points)</b> from a one-line change.</li>
+      </ul>
+    </div>
+
+    <div class="proj">
+      <span class="tag">Quantification · Private</span>
+      <h3>legal-hallucination-bench</h3>
+      <ul>
+        <li>Adversarial trap set: <b>5 Chinese models × 23 trap questions = 115 responses</b>; citation
+          hallucination rate (HVI) <b>33.3%–54.2%</b> (even paid flagships fail half).</li>
+        <li>Content-level EXACT (verbatim compliance): <b>all 8 law domains at 0%</b>; ground truth 2,327 nodes
+          incl. <b>212 Tier A expert-signed</b> golden-truth nodes.</li>
+      </ul>
+    </div>
+
+    <div class="proj">
+      <span class="tag">Product</span>
+      <h3>compliance-triangle</h3>
+      <ul>
+        <li>Same verify engine as the benchmarks, productized: stamps every AI legal citation 🟢🟡🔴 across
+          <b>legal · tax · IP</b> domains (existence / timeliness / content-match checks).</li>
+      </ul>
+    </div>
+
+    <div class="proj">
+      <span class="tag">Public Leaderboard</span>
+      <h3>legal-ai-watch</h3>
+      <ul>
+        <li><b>31-question</b> weekly citation-evaluation with a live dashboard (demo data); HVI 5%–11%,
+          coverage 92%, spanning <b>7 domains</b> (civic / criminal / corporate / patent / tax + data-compliance
+          &amp; competition law).</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Other Builds</h2>
+    <div class="cols">
+      <div>
+        <h3>Excel Master series</h3>
+        <p style="font-size:14px">Single canonical <code>regen_*.py</code> generator for
+          <b>corporate-governance templates</b> &amp; <b>VAT input-tax deduction audit</b> — the
+          "find-the-error + per-row correct value" pattern.</p>
+      </div>
+      <div>
+        <h3>CIPP/E prep system</h3>
+        <p style="font-size:14px">Studied the IAPP <b>CIPP/E (EU data protection)</b> framework; question bank
+          not public.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <div class="skills">
+      <span>Python stdlib</span><span>offline-zero-dep</span><span>reproducible eval</span>
+      <span>LLM evaluation</span><span>legal AI</span><span>tax compliance</span>
+      <span>patent law</span><span>product design</span><span>RAG data curation</span>
+      <span>prompt-failure diagnosis</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Credentials</h2>
+    <ul>
+      <li>Licensed <b>lawyer</b>, <b>tax adviser</b>, and <b>patent attorney</b> (China).</li>
+      <li>Studied IAPP <b>CIPP/E</b> (EU data protection) system.</li>
+    </ul>
+  </section>
+
+  <footer>
+    This CV is navigation only and not legal / tax / patent advice. Numbers evolve with versions; latest per-repo
+    READMEs are authoritative. · © 2026 Vicky Wu
+  </footer>
+
+</div>
+</body>
+</html>
