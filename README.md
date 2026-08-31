@@ -8,7 +8,7 @@ I turn six years of legal / tax / IP practice into AI-quality evaluation and gua
 
 ---
 
-## 📦 作品集（7 个仓库 · 6 公开 + 1 私有）· Portfolio — 7 repos (6 public + 1 private)
+## 📦 作品集（8 个仓库 · 7 公开 + 1 私有）· Portfolio — 8 repos (7 public + 1 private)
 
 | 仓库 Repo | 角色 Role | 一句话 One-liner |
 | --- | --- | --- |
@@ -19,6 +19,7 @@ I turn six years of legal / tax / IP practice into AI-quality evaluation and gua
 | [🛡️ compliance-triangle](https://vickywu97.github.io/compliance-triangle/) · [repo](https://github.com/vickywu97/compliance-triangle) | **产品 · Product** | 同一套 verify 引擎给每条 AI 引注盖 🟢🟡🔴 章（法律·税务·IP 三域）/ same verify engine → 🟢🟡🔴 stamps across legal·tax·IP. |
 | [📡 legal-ai-watch](https://github.com/vickywu97/legal-ai-watch) | **公开榜单 · Public leaderboard** | 31 题公开评测 + [gh-pages 看板](https://vickywu97.github.io/legal-ai-watch)（演示数据 · github.io 国内可能不可达 / may be unreachable in mainland China），跟踪主流模型法条引用表现 / 31-Q public eval + [live dashboard](https://vickywu97.github.io/legal-ai-watch) (demo data · github.io may be unreachable in CN). |
 | [⏱️ lawyer-timesheet](https://vickywu97.github.io/lawyer-timesheet/) · [repo](https://github.com/vickywu97/lawyer-timesheet) | **实务工具 · Practice tooling** | 本地优先 / 零依赖的中国律师**计时·计费 CLI**；审计哈希链可回放、中国税法原生（价税分离/免税/跨境预提）、事项智能归类 + 移动端快速捕获 / local-first, zero-dep legal time-billing CLI; replayable audit hash chain, China-tax native, intelligent task categorization + mobile quick-capture. |
+| [⚙️ TASK-DD-007](https://github.com/vickywu97/TASK-DD-007) | **Agent · 工程 · Engineering** | 离线·零依赖·依赖 pin（纯 Python vendored，规避 lxml）的**确定性规则引擎**；读取 52 项尽调清单 + 资料室，产出 4 件可机器校验交付物；隐藏 B 卷迁移安全（不写死实例答案、不捆绑预生成成果）/ offline, dependency-pinned (vendored pure-Python, no lxml) **deterministic rule engine**; reads 52-item checklist + data room → 4 machine-verifiable deliverables; hidden-B-volume migration-safe (no hardcoded answers, no pre-bundled outputs). |
 
 ![作品集架构](./portfolio_architecture.svg)
 
@@ -93,6 +94,7 @@ One person designs the rules, defines the traps, and signs every KB entry — a 
 - **legal-ai-watch**（公开榜单）：31 题周更评测 + 看板（演示数据）。
 - **law-cli**（法条数据 CLI）：中文法条「数据层最小闭环」——合法获取 / 固定来源 / 可复现证明；零依赖，`fetch`/`show`/`verify`，AI 审核终核（219/219 `ai_verified`）。
 - **lawyer-timesheet**（实务工具）：本地优先·零依赖的中国律师计时与计费 CLI；审计哈希链可回放、中国税法原生（价税分离/免税/跨境预提）、事项智能归类 + 移动端快速捕获（V2）。
+- **TASK-DD-007**（Agent·工程）：离线·零依赖·依赖 pin（纯 Python vendored，规避 lxml）的确定性规则引擎；读取 52 项尽调清单 + 资料室，产出 4 件可机器校验交付物；隐藏 B 卷迁移安全（不写死实例答案、不捆绑预生成成果）。
 
 **其他作品**
 - Excel 大师系列：公司治理模板生成 + 增值税进项税抵扣审核（单一 `regen_*.py` 生成入口）。
