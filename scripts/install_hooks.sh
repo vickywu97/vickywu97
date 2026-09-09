@@ -13,10 +13,16 @@
 
 set -e
 
-HOOKS_DIR=$(cd "$(dirname "$0")/.." && pwd)/.githooks
+SRC_DIR=$(cd "$(dirname "$0")/.." && pwd)
+HOOKS_DIR="$SRC_DIR/.githooks"
+CHECKER="$SRC_DIR/scripts/check_claims.py"
 
 if [ ! -f "$HOOKS_DIR/pre-commit" ]; then
     echo "找不到钩子：$HOOKS_DIR/pre-commit" >&2
+    exit 1
+fi
+if [ ! -f "$CHECKER" ]; then
+    echo "找不到校验脚本：$CHECKER" >&2
     exit 1
 fi
 chmod +x "$HOOKS_DIR/pre-commit"
@@ -31,7 +37,8 @@ for t in $targets; do
         echo "跳过（不是 git 仓库）：$t" >&2
         continue
     fi
-    (cd "$t" && git config core.hooksPath "$HOOKS_DIR")
+    (cd "$t" && git config core.hooksPath "$HOOKS_DIR" \
+             && git config claims.checker "$CHECKER")
     echo "已安装 -> $t"
 done
 

@@ -15,32 +15,35 @@
 #   git config core.hooksPath .githooks
 # 或：scripts/install_hooks.sh
 
-# 只对"可能影响口径"的改动做校验，避免每次提交都白白等几秒
+# 没有暂存改动就直接跳过。
+# 不做扩展名过滤：口径文本可能藏在 .py 里（watch 的看板页脚就内嵌在
+# generate_dashboard.py 中），按 .md/.html 过滤会漏掉这类改动。
+# 全量校验约 2.5 秒，宁可等也别漏。
 staged=$(git diff --cached --name-only --diff-filter=ACM 2>/dev/null)
 if [ -z "$staged" ]; then
     exit 0
 fi
-if ! printf '%s\n' "$staged" | grep -qE '\.(md|html|htm|json|jsonl)$'; then
-    exit 0
-fi
 
 # 定位校验脚本：优先本仓库，其次环境变量，再次同级目录的作品集仓库
-CHECKER=""
-if [ -f "scripts/check_claims.py" ]; then
+# 1) 安装器写死的绝对路径（最可靠，避免"找不到脚本 -> 静默跳过"这种假保护）
+CHECKER=$(git config claims.checker 2>/dev/null || true)
+[ -n "$CHECKER" ] && [ ! -f "$CHECKER" ] && CHECKER=""
+
+# 2) 本仓库自带（hub 自身的克隆）
+if [ -z "$CHECKER" ] && [ -f "scripts/check_claims.py" ]; then
     CHECKER="scripts/check_claims.py"
-elif [ -n "$CLAIMS_CHECKER" ] && [ -f "$CLAIMS_CHECKER" ]; then
+fi
+
+# 3) 环境变量
+if [ -z "$CHECKER" ] && [ -n "$CLAIMS_CHECKER" ] && [ -f "$CLAIMS_CHECKER" ]; then
     CHECKER="$CLAIMS_CHECKER"
 fi
 
+# 4) 兜底：向上找 vickywu97-profile/scripts/（含 WorkBuddy/<date>/<repo> 布局）
 if [ -z "$CHECKER" ]; then
-    for d in .. ../.. ../../.. ; do
-        for n in vickywu97-profile ; do
-            if [ -f "$d/$n/scripts/check_claims.py" ]; then
-                CHECKER="$d/$n/scripts/check_claims.py"
-                break 2
-            fi
-        done
-        for f in "$d"/*/scripts/check_claims.py; do
+    for d in . .. ../.. ../../.. ; do
+        for f in "$d"/vickywu97-profile/scripts/check_claims.py \
+                 "$d"/*/vickywu97-profile/scripts/check_claims.py ; do
             if [ -f "$f" ]; then
                 CHECKER="$f"
                 break 2
