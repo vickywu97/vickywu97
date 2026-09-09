@@ -1,0 +1,67 @@
+#!/bin/sh
+# pre-commit: 作品集口径自动校验
+#
+# 拦什么：README / cv.html / 推广文案里把私有仓写成"开源"、题数与源头对不上、
+#         线上看板数据回退 等（详见 scripts/check_claims.py 的 R1–R6）。
+#
+# 设计底线：钩子本身绝不能成为提交的障碍。
+#   - 找不到校验脚本   -> 静默跳过
+#   - 没有 python3     -> 静默跳过
+#   - 本次没改文档/数据 -> 静默跳过
+#   - 只有 FAIL 才拦；WARN 只是提醒，不拦
+# 真要绕过：git commit --no-verify
+#
+# 安装（每个克隆都要跑一次）：
+#   git config core.hooksPath .githooks
+# 或：scripts/install_hooks.sh
+
+# 只对"可能影响口径"的改动做校验，避免每次提交都白白等几秒
+staged=$(git diff --cached --name-only --diff-filter=ACM 2>/dev/null)
+if [ -z "$staged" ]; then
+    exit 0
+fi
+if ! printf '%s\n' "$staged" | grep -qE '\.(md|html|htm|json|jsonl)$'; then
+    exit 0
+fi
+
+# 定位校验脚本：优先本仓库，其次环境变量，再次同级目录的作品集仓库
+CHECKER=""
+if [ -f "scripts/check_claims.py" ]; then
+    CHECKER="scripts/check_claims.py"
+elif [ -n "$CLAIMS_CHECKER" ] && [ -f "$CLAIMS_CHECKER" ]; then
+    CHECKER="$CLAIMS_CHECKER"
+fi
+
+if [ -z "$CHECKER" ]; then
+    for d in .. ../.. ../../.. ; do
+        for n in vickywu97-profile ; do
+            if [ -f "$d/$n/scripts/check_claims.py" ]; then
+                CHECKER="$d/$n/scripts/check_claims.py"
+                break 2
+            fi
+        done
+        for f in "$d"/*/scripts/check_claims.py; do
+            if [ -f "$f" ]; then
+                CHECKER="$f"
+                break 2
+            fi
+        done
+    done
+fi
+
+command -v python3 >/dev/null 2>&1 || exit 0
+[ -n "$CHECKER" ] || exit 0
+
+echo "[pre-commit] 口径校验：$CHECKER"
+python3 "$CHECKER"
+status=$?
+
+if [ "$status" -ne 0 ]; then
+    echo ""
+    echo "提交已拦下：口径校验未通过（见上方 FAIL 行）。"
+    echo "  修完后重新 git add && git commit"
+    echo "  确属误报 / 紧急提交：git commit --no-verify"
+    exit 1
+fi
+
+exit 0
