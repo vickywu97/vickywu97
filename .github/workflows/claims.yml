@@ -1,0 +1,37 @@
+name: claims-check
+
+# 作品集口径自动校验。
+#
+# 背景：8 个仓库、几十份文档 + 一个线上看板，口径靠人肉对齐必然漂移。
+# 真实踩过的坑：私有仓库被写成「开源仓库 · MIT」（且已挂到线上站点）；
+# bench 陷阱题数写成 23（真值 29）；gh-pages 看板一度回退成 30 题（真值 112）。
+#
+# CI 里只有本仓库，兄弟仓库（watch/bench/triangle/kb/lcb）不存在，
+# check_claims.py 会自动跳过相关规则，不会误报红；
+# 完整跨仓校验在本机跑：`python3 scripts/check_claims.py`
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  claims:
+    name: Portfolio claims consistency
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Show derived ground truth
+        run: python3 scripts/check_claims.py --list-facts
+
+      - name: Check claims
+        run: python3 scripts/check_claims.py
