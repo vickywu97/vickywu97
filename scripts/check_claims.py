@@ -140,6 +140,13 @@ def derive_facts(repos: dict) -> dict:
         facts["bench_verifications"] = count_lines(
             bench / "benchmark" / "reports" / "verifications.jsonl"
         )
+        # bench 自带一份法条 KB（knowledge_base/laws/statutes.jsonl）。
+        # 注意：这与 verified-chinese-law-kb 是两份不同的 KB，条数不同
+        # （bench=2327/8 部法；kb 仓库=2337/9 模块含未发布的著作权法）。
+        # 文档里引用的「2327 节点」指的都是 bench 这份，别拿 kb 仓库的数去比对。
+        kb_file = bench / "knowledge_base" / "laws" / "statutes.jsonl"
+        if kb_file.is_file():
+            facts["bench_kb_nodes"] = count_lines(kb_file)
 
     # ---- kb ----
     kb = repos.get("kb")
@@ -200,12 +207,6 @@ LEGACY = {
 }
 
 NUM = r"(\d[\d,]*)"
-
-# KB 的合法旧口径：M1–M8「8 部法完整收录」= 2327。
-# 源头全模块合计是 2337（含 M9 著作权法 10 条）——两个数都可能是正确表述，
-# 取决于想强调"8 部法完整"还是"全部模块"。机器不替人裁决，只在写了 2327
-# 却没声明 8 部法口径时给 WARN 提醒。
-LEGACY_KB_NODES = 2327
 
 
 def _nums(raw: str) -> list:
@@ -334,13 +335,15 @@ def rule_lcb_questions(repos, facts):
 
 
 def rule_kb_nodes(repos, facts):
-    """KB 节点数：2327(8 部法完整) 与 2337(含 M9 著作权法部分) 都算对。
+    """KB 节点数校验。
 
-    真值是全部模块之和；若文档只写 8 部法的 2327，给 WARN 提示而不是 FAIL，
-    因为这个表述本身没错，只是没反映新增模块。
+    关键事实（曾踩坑）：bench 自带的法条 KB（knowledge_base/laws/statutes.jsonl）
+    是 2327 条 / 8 部法；verified-chinese-law-kb 是另一份、2337 条 / 9 模块
+    （含未发布的著作权法 10 条）。对外文档里的「2327 节点」指的都是 bench 这份。
+    因此本规则以 bench 的 KB 为准——写 2337 才是拿错了源。
     """
     bad = []
-    total = facts.get("kb_nodes")
+    total = facts.get("bench_kb_nodes")
     if total is None:
         return bad
     pat = re.compile(NUM + r"\s*(?:节点|nodes)", re.I)
@@ -360,22 +363,12 @@ def rule_kb_nodes(repos, facts):
                         # 只有明显是 KB 规模(4 位数)才管，避免误伤 212 / 203 之类
                         if n < 1000:
                             continue
-                        if n == LEGACY_KB_NODES:
-                            # 2327 = M1–M8「8 部法完整收录」的和，是合法表述；
-                            # 但只有当行内确实声明了 8 部法口径才静默通过。
-                            if re.search(r"8\s*(?:部法|法域|laws?|domains?|部)", line, re.I):
-                                continue
-                            bad.append((
-                                "WARN", f, ln,
-                                "KB 节点写 %s，源头全模块合计 %s：若此处指 8 部法完整收录"
-                                "则无误，否则应更新为 %s（M9 著作权法已入库）"
-                                % (n, total, total),
-                            ))
-                            continue
                         bad.append((
-                            "FAIL", f, ln,
-                            "KB 节点数 %s 与源头真值 %s 不符: %s"
-                            % (n, total, line.strip()[:80]),
+                            "WARN", f, ln,
+                            "KB 节点写 %s，但 bench 自带 KB 真值 %s（8 部法）。"
+                            "若写的是 %s，那是 verified-chinese-law-kb 仓库的全模块合计"
+                            "（含未发布著作权法），与 bench 非同一份，别混用。"
+                            % (n, total, facts.get("kb_nodes", "?")),
                         ))
     return bad
 
