@@ -6,14 +6,18 @@ name: claims-check
 # 真实踩过的坑：私有仓库被写成「开源仓库 · MIT」（且已挂到线上站点）；
 # bench 陷阱题数写成 23（真值 29）；gh-pages 看板一度回退成 30 题（真值 112）。
 #
-# CI 里只有本仓库，兄弟仓库（watch/bench/triangle/kb/lcb）不存在，
-# check_claims.py 会自动跳过相关规则，不会误报红；
-# 完整跨仓校验在本机跑：`python3 scripts/check_claims.py`
+# 两种触发：
+#   1) push / PR 到 main：跑本仓库自包含校验（兄弟仓库缺失则自动跳过对应规则）。
+#   2) 每日定时 (cron) + 手动 dispatch：额外 checkout 全部 7 个公开兄弟仓库，
+#      做完整的跨仓口径扫描（bench 是私有仓，默认 token 无法 checkout，故跳过；
+#      bench 相关规则 R3/R5/R6 仅在本地有 bench 克隆时运行）。
 
 on:
   push:
     branches: [main]
   pull_request:
+  schedule:
+    - cron: '23 18 * * *'        # 每日 UTC 18:23（北京 02:23，避峰）
   workflow_dispatch:
 
 jobs:
@@ -22,8 +26,47 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      # 检出路径必须叫 vickywu97-profile（与 check_claims.REPO_DIR_NAMES["hub"] 一致），
+      # 否则校验器在跨仓扫描时认不出 hub 自身，R1(私有仓禁语) 会漏扫本仓库文档。
+      - name: Checkout hub (this repo)
         uses: actions/checkout@v4
+        with:
+          path: vickywu97-profile
+
+      # ---- 公开兄弟仓库：定时/手动扫描时一并检出，做跨仓校验 ----
+      # continue-on-error：仓库改名或临时网络抖动不应让整条流水线红。
+      # 缺失的仓库会被 check_claims.py 自动跳过（不误报红）。
+      - name: Checkout legal-ai-watch
+        if: github.event_name != 'pull_request'
+        continue-on-error: true
+        uses: actions/checkout@v4
+        with:
+          repository: vickywu97/legal-ai-watch
+          path: legal-ai-watch
+
+      - name: Checkout compliance-triangle
+        if: github.event_name != 'pull_request'
+        continue-on-error: true
+        uses: actions/checkout@v4
+        with:
+          repository: vickywu97/compliance-triangle
+          path: compliance-triangle
+
+      - name: Checkout verified-chinese-law-kb
+        if: github.event_name != 'pull_request'
+        continue-on-error: true
+        uses: actions/checkout@v4
+        with:
+          repository: vickywu97/verified-chinese-law-kb
+          path: verified-chinese-law-kb
+
+      - name: Checkout law-citation-bench
+        if: github.event_name != 'pull_request'
+        continue-on-error: true
+        uses: actions/checkout@v4
+        with:
+          repository: vickywu97/law-citation-bench
+          path: law-citation-bench
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -31,7 +74,7 @@ jobs:
           python-version: '3.11'
 
       - name: Show derived ground truth
-        run: python3 scripts/check_claims.py --list-facts
+        run: python3 vickywu97-profile/scripts/check_claims.py --root . --list-facts
 
-      - name: Check claims
-        run: python3 scripts/check_claims.py
+      - name: Check claims (cross-repo)
+        run: python3 vickywu97-profile/scripts/check_claims.py --root .
