@@ -3,14 +3,14 @@ name: claims-check
 # 作品集口径自动校验。
 #
 # 背景：8 个仓库、几十份文档 + 一个线上看板，口径靠人肉对齐必然漂移。
-# 真实踩过的坑：私有仓库被写成「开源仓库 · MIT」（且已挂到线上站点）；
+# 真实踩过的坑：公开仓库(bench)被写成「私有仓库 · 需授权访问」（与事实相反）；
 # bench 陷阱题数写成 23（真值 29）；gh-pages 看板一度回退成 30 题（真值 112）。
 #
 # 两种触发：
 #   1) push / PR 到 main：跑本仓库自包含校验（兄弟仓库缺失则自动跳过对应规则）。
-#   2) 每日定时 (cron) + 手动 dispatch：额外 checkout 全部 7 个公开兄弟仓库，
-#      做完整的跨仓口径扫描（bench 是私有仓，默认 token 无法 checkout，故跳过；
-#      bench 相关规则 R3/R5/R6 仅在本地有 bench 克隆时运行）。
+#   2) 每日定时 (cron) + 手动 dispatch：额外 checkout 全部 8 个公开兄弟仓库
+#      （含 bench，其自 2026-09-16 起已转公开，默认 token 可正常 checkout），
+#      做完整的跨仓口径扫描（缺失仓库由校验器自动跳过，不误报红）。
 
 on:
   push:
@@ -27,7 +27,7 @@ jobs:
 
     steps:
       # 检出路径必须叫 vickywu97-profile（与 check_claims.REPO_DIR_NAMES["hub"] 一致），
-      # 否则校验器在跨仓扫描时认不出 hub 自身，R1(私有仓禁语) 会漏扫本仓库文档。
+      # 否则校验器在跨仓扫描时认不出 hub 自身，R1(公开仓禁标私有) 会漏扫本仓库文档。
       - name: Checkout hub (this repo)
         uses: actions/checkout@v4
         with:
@@ -67,6 +67,14 @@ jobs:
         with:
           repository: vickywu97/law-citation-bench
           path: law-citation-bench
+
+      - name: Checkout legal-hallucination-bench
+        if: github.event_name != 'pull_request'
+        continue-on-error: true
+        uses: actions/checkout@v4
+        with:
+          repository: vickywu97/legal-hallucination-bench
+          path: legal-hallucination-bench
 
       - name: Set up Python
         uses: actions/setup-python@v5

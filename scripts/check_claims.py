@@ -6,7 +6,7 @@
 ------------------
 作品集跨 8 个仓库、几十份文档 + 一个线上看板，口径靠人肉对齐必然出错。
 已真实发生过的三类事故：
-  1) 私有仓库被写成「开源仓库 · MIT」（中英文 README 自相矛盾，且已挂到线上站点）
+  1) 公开仓库(bench)被写成「私有仓库 · 需授权访问」（与事实相反，且中英文 README 自相矛盾）
   2) bench 陷阱题数写成 23（真值 29）
   3) gh-pages 线上看板回退成 30 题 / 12 周（真值 112 题 / 14 周），差点推上去
 
@@ -220,36 +220,38 @@ def _nums(raw: str) -> list:
 
 
 def rule_visibility(repos: dict) -> list:
-    """R1: bench 是私有仓，任何把它写成『开源』的表述都是错的。
+    """R1: bench 自 2026-09-16 起为公开仓，任何把它写成
+    『私有 / 需授权访问 / Private』的"当前口径"表述都是错的。
 
-    只判定"bench 与 开源 出现在同一行且距离很近"，避免误伤
-    泛指自己作品开源的正常表述（7/8 仓确实是开源的）。
+    豁免：
+    - CHANGELOG* 历史文件（记录的是各时间点的决策，非当前口径）
+    - 同一行已写明"开源/open source/公开"，属对比或修正语境
     """
     bad = []
     bench_alias = re.compile(r"legal[-_]?hallucination[-_]?bench|hallucination[-_]?bench", re.I)
-    ban = re.compile(r"开源|open[\s\-]?source", re.I)
-    window = 120
+    private_re = re.compile(r"私有|需授权访问|access\s+on\s+request|Private\s*[—-]", re.I)
+    public_re = re.compile(r"开源|open[\s\-]?source|公开|public", re.I)
 
     for key, repo in repos.items():
         if not repo:
             continue
         for f in iter_text_files(repo):
+            # CHANGELOG 记录历史决策，不视为当前口径
+            if str(f).split("/")[-1].upper().startswith("CHANGELOG"):
+                continue
             for ln, line in enumerate(read_text(f).splitlines(), 1):
                 mb = bench_alias.search(line)
                 if not mb:
                     continue
-                # 该行同时写明了正确口径(私有/需授权访问) => 是在做对比或记录修正，不算违规。
-                # 例：CHANGELOG 里「原误写『开源仓库 · MIT』…LHB 实为私有仓库 · 需授权访问」
-                if re.search(r"私有|需授权访问|access\s+on\s+request", line, re.I):
+                if not private_re.search(line):
                     continue
-                for mo in ban.finditer(line):
-                    dist = abs(mo.start() - mb.start())
-                    if dist <= window:
-                        bad.append((
-                            "FAIL", f, ln,
-                            "bench(私有仓)被写成开源: ...%s..." % line.strip()[:110],
-                        ))
-                        break
+                # 同一行已写明正确口径(开源/公开) => 对比或修正语境，不算违规
+                if public_re.search(line):
+                    continue
+                bad.append((
+                    "FAIL", f, ln,
+                    "bench(公开仓)被写成私有/需授权访问: ...%s..." % line.strip()[:110],
+                ))
     return bad
 
 
