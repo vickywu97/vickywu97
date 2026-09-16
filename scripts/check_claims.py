@@ -220,7 +220,7 @@ def _nums(raw: str) -> list:
 
 
 def rule_visibility(repos: dict) -> list:
-    """R1: bench 自 2026-09-16 起为公开仓，任何把它写成
+    """R1: bench 为公开仓（LICENSE MIT），任何把它写成
     『私有 / 需授权访问 / Private』的"当前口径"表述都是错的。
 
     豁免：
