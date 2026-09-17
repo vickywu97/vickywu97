@@ -1,14 +1,34 @@
 # Hi, I'm Vicky Wu 👋
 
 **律师 + 税务师 + 专利代理师 ｜ 在做 AI 法律产品**
-**Lawyer · Tax Adviser · Patent Attorney → building AI legal-product & compliance tooling that *measures* LLM quality.**
+**Lawyer · Tax Adviser · Patent Attorney → building AI legal-product & compliance tooling: both *measuring* LLM quality and *doing* compliance work.**
 
-我把六年的法律 / 税务 / 知识产权实务经验，翻译成一套**可量化、可复现的 AI 质量评测与防护产品**——不是只会调 prompt，而是能把"模型错了"变成"可度量、可修复的规格"。
-I turn six years of legal / tax / IP practice into AI-quality evaluation and guardrail tooling that is *quantifiable and reproducible* — turning vague "the model is wrong" into a measured, fixable specification.
+我把六年的法律 / 税务 / 知识产权实务经验，翻译成两条互补的产品线：
+
+- **① 可量化、可复现的 AI 质量评测与防护** —— 不是只会调 prompt，而是能把"模型错了"变成"可度量、可修复的规格"。
+- **② 直接干活的生产力型合规工具** —— 开源许可证合规 / 隐私政策体检 / 代币监管定性；离线零依赖、可进 CI 门禁，是法务岗日常能直接用的东西，而不是演示品。
+
+I turn six years of legal / tax / IP practice into two complementary product lines:
+
+- **① quantifiable, reproducible AI-quality evaluation & guardrails** — turning vague "the model is wrong" into a measured, fixable specification.
+- **② productivity compliance tools that actually do the work** — OSS licensing / privacy-policy review / token classification; offline, zero-dependency, CI-gateable — tools a legal team can run daily, not demos.
 
 ---
 
-## 📦 作品集（8 个仓库 · 全部公开）· Portfolio — 8 repos (all public)
+## 📦 作品集（11 个仓库 · 全部公开）· Portfolio — 11 repos (all public)
+
+### 🧰 生产力型合规工具 · Productivity compliance tools
+
+> 直接对应法务岗日常工作的三个工具：**离线 · 零第三方依赖 · 可进 CI 门禁**。
+> Three tools that map directly to in-house legal work: **offline · zero third-party deps · CI-gateable**.
+
+| 仓库 Repo | 合规领域 Domain | 一句话 One-liner |
+| --- | --- | --- |
+| [🧾 oss-license-checker](https://github.com/vickywu97/oss-license-checker) | **知产 / 开源法务 IP · OSS** | 解析 npm / pip / go 依赖清单，逐依赖判定**商用可行性 · 传染性（5 档）· 需履行义务 · 冲突组合**；四态兼容矩阵（兼容 / 单向 / 有条件 / 不兼容，争议项显式标注不装"确定"），内置 22 个 license 事实库（附来源 URL + 核验日期），支持 SPDX `OR`/`AND` 表达式，可导出 **CycloneDX SBOM**，`--fail-on` 可作流水线门禁 / parses npm·pip·go manifests → per-dependency verdicts on commercial use, copyleft (5 tiers), obligations & conflicts; four-state compatibility matrix (disputed pairs flagged, never faked as certain); 22-license fact base with sources & verification dates; SPDX expressions; **CycloneDX SBOM** export; `--fail-on` CI gate. |
+| [🔏 privacy-policy-checker](https://github.com/vickywu97/privacy-policy-checker) | **数据 / 隐私合规 Data · Privacy** | 对照 **PIPL 31 项 + GDPR 42 项**检查项逐条核验隐私政策，四态判定（satisfied / partial / missing / **not_applicable**）；带语境条件的检查项（如跨境传输、敏感信息）在全文无相关语境时自动判"不适用"，避免对纯境内 / 非敏感产品误报；每条附**法条原文 + 来源 URL + 核验日期** / audits a privacy policy against **31 PIPL + 42 GDPR** checks with four-state verdicts; context-gated items auto-marked `not_applicable` to avoid false positives on domestic-only / non-sensitive products; every item cites article text + source URL + verification date. |
+| [🪙 token-classifier](https://github.com/vickywu97/token-classifier) | **Web3 / 加密法务 Crypto** | 输入代币机制描述 → **Howey 四要素**逐要素四态判定（strong / weak / absent / unknown）+ 置信度 + **香港 SFC / 新加坡 MAS 分法域**分别定性（不做统一全球结论）；证据片段锚定命中词原文，争议项显式标注（如"购买"可能仅为消费而非投资）；**只输出分析线索，绝不输出二元法律结论** / token mechanism description → Howey four-factor four-state scoring + confidence + **separate HK SFC / SG MAS verdicts** (no single global conclusion); evidence anchored to matched wording; disputed points flagged (e.g. "purchase" may be mere consumption); **analysis leads only — never a binary legal conclusion**. |
+
+### 🧪 评测与数据地基 · Evaluation & data foundation
 
 | 仓库 Repo | 角色 Role | 一句话 One-liner |
 | --- | --- | --- |
@@ -70,8 +90,8 @@ One person designs the rules, defines the traps, and signs every KB entry — a 
 
 ## 🧰 技术标签 · Skills
 
-`Python 标准库` · `离线零依赖` · `可复现评测` · `LLM 评测` · `法律 AI` · `税务合规` · `知识产权` · `产品设计`
-`Python stdlib` · `offline-zero-dep` · `reproducible eval` · `LLM evaluation` · `legal AI` · `tax compliance` · `IP` · `product design`
+`Python 标准库` · `离线零依赖` · `可复现评测` · `LLM 评测` · `法律 AI` · `税务合规` · `知识产权` · `产品设计` · `开源许可证合规` · `隐私合规 (PIPL/GDPR)` · `Web3 合规` · `SBOM` · `CI 门禁`
+`Python stdlib` · `offline-zero-dep` · `reproducible eval` · `LLM evaluation` · `legal AI` · `tax compliance` · `IP` · `product design` · `OSS license compliance` · `privacy (PIPL/GDPR)` · `Web3 compliance` · `SBOM` · `CI gating`
 
 ---
 
@@ -84,9 +104,16 @@ One person designs the rules, defines the traps, and signs every KB entry — a 
 目标方向：互联网 / AI / 科技公司 法务岗（in-house legal counsel）· 法律合规 · 税务合规 · 知识产权（远程优先）
 
 **专业概述**
-六年法律 / 税务 / 知识产权实务经验，现聚焦 AI 法律产品与合规工具。开源作品证明：不只是会调 prompt，更能**定义并量化 AI 在法律场景的质量**——从逐字核验的法条真值库，到离线评测基准（一个提示词改动把模型幻觉盲区从 0 拉到 0.97），再到每周自动监测排行榜与带门禁的合规产品。
+六年法律 / 税务 / 知识产权实务经验，现聚焦 AI 法律产品与合规工具。开源作品证明两件事：一是不只是会调 prompt，更能**定义并量化 AI 在法律场景的质量**——从逐字核验的法条真值库，到离线评测基准（一个提示词改动把模型幻觉盲区从 0 拉到 0.97），再到每周自动监测排行榜与带门禁的合规产品；二是能**把法律判断直接做成工具**——开源许可证合规、隐私政策体检、代币监管定性，三个工具均离线零依赖、可进 CI 门禁，法务岗日常能直接用。
 
 **核心项目**
+
+*生产力型合规工具 —— 直接对应法务岗日常工作 / Productivity compliance tools*
+- **oss-license-checker**（知产 · 开源法务）：解析 npm / pip / go 依赖清单，逐依赖判定商用可行性、传染性（5 档）、需履行义务与冲突组合；四态兼容矩阵（争议项显式标注）；22 个 license 事实库附来源 URL + 核验日期；支持 SPDX `OR`/`AND`；可导出 CycloneDX SBOM；`--fail-on` 可作 CI 门禁。
+- **privacy-policy-checker**（数据 · 隐私合规）：对照 PIPL 31 项 + GDPR 42 项逐条核验，四态判定（含语境感知的 `not_applicable`，避免对纯境内 / 非敏感产品误报）；每条附法条原文 + 来源 URL + 核验日期。
+- **token-classifier**（Web3 · 加密法务）：Howey 四要素逐要素四态判定 + 置信度 + 香港 SFC / 新加坡 MAS 分法域定性（不做统一全球结论）；证据锚定命中词原文，争议项显式标注；只输出分析线索，绝不输出二元法律结论。
+
+*评测与数据地基 / Evaluation & data foundation*
 - **verified-chinese-law-kb**（数据地基）：8 部法律、2,327 条逐字核验法条，模块化、带版本轴、可独立下载；M1 民法典由执业律师具名签署。
 - **law-citation-bench**（评测地基）：离线零依赖、500 题确定性基准，量化 LLM 法条引用准确率；一行提示词修复为 Qwen 回收 **+97 分**。
 - **legal-hallucination-bench**（量化基准 · 开源）：5 国产模型 × 29 陷阱题，HVI **33.3%–54.2%**，8 法域逐字 EXACT 全 0%。
