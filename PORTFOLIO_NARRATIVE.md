@@ -131,7 +131,8 @@
 
 1. ~~「profile README『Open to』首项是 AI 法律产品经理」~~ —— **已撤回（误报）**。经核规范 profile 仓库（`vickywu97/vickywu97`，分支 `main`）README 已是「**互联网 / AI / 科技公司 法务岗（in-house legal counsel）**」打头，且全文无 PM 表述——与「主岗位 = 法务岗」一致，**无需修改**。
    > 误报原因：先前读取的是本地**过期 clone**（停在 `301f047`，落后于 `main` 的 `572a8f0`），其 README 仍是旧口径。**教训：核实对外事实必须查已发布的规范源，不能查本地任意副本**——这与本报告第 8 条元教训（结论的下一层）同源。
-2. **本地过期 clone 是真实风险（建议处理）**：过期 clone 的 README 仍是 PM 打头、且落后于线上。**若误从该目录 push，会用旧 README 覆盖线上正确版本**。建议删除该目录，或 `git fetch && git reset --hard origin/main` 对齐后再使用。
+2. **本地过期 clone 是真实风险（建议处理）**：过期 clone（`2026-07-26-16-50-27/vickywu97-profile`，停在 `301f047`）的 README 仍是 PM 打头、且落后于线上 `f1c10e6`。**普通 `git push` 会被远程以 non-fast-forward 拒绝**（不会静默覆盖线上）；但**一旦误加 `--force`，就会用旧 README 覆盖线上正确版本**。建议删除该目录，或 `git fetch && git reset --hard origin/main` 对齐后再使用。
+   > 口径更正：初稿曾写「误 push 即覆盖线上」——**夸大了**。实际需 `--force` 才会覆盖，普通 push 会被拒绝。此处按实测修正。
 3. **本文件的发布位置**：当前在规范 profile 仓库（`vickywu97/vickywu97`，分支 `main`）。建议（未执行）在 profile README 顶部加一行指向本文件，让招聘方第一眼看到总括叙事。
 4. **数字随版本演进**：本文所有数字以各仓库 README 为准；本文为叙事与导航，不构成法律 / 税务 / 专利意见。
 
