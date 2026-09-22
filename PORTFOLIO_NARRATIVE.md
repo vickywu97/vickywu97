@@ -1,7 +1,7 @@
 # 作品集叙事：从「我会用 AI」到「我定义 AI 的可信边界」
 
 > **本文件是作品集的首页。** 它不替代任何仓库 README，而是把三个合规工具、诚实性审计与 8 条元教训串成一个叙事——其他所有仓库与文档，都是这份叙事的**证据**。
-> 状态：v0.2（2026-09-22）。文末「定稿前待确认」列的是需要本人拍板的事项。
+> 状态：v0.2（2026-09-22，已定稿）。
 
 ---
 
@@ -42,7 +42,7 @@
 | 项目 | 角色 | 关键数字 |
 |------|------|---------|
 | [verified-chinese-law-kb](https://github.com/vickywu97/verified-chinese-law-kb) | 数据地基 | 8 部法律、**2,327 条**逐字核验法条（M1 民法典 1,260 条全文，其中 **27 条**为律师逐条签核） |
-| [legal-hallucination-bench](https://github.com/vickywu97/legal-hallucination-bench) | 量化基准 | 5 国产模型 × 23 陷阱题 = **115 条**有效回答；引注幻觉率 HVI **33.3%–54.2%**；8 法域逐字 EXACT **全部 0%**；ground truth 2,327 节点含 **212** 个专家签核节点 |
+| [legal-hallucination-bench](https://github.com/vickywu97/legal-hallucination-bench) | 量化基准 | 5 国产模型 × 29 陷阱题 = **145 条**有效回答；引注幻觉率 HVI **33.3%–54.2%**；8 法域逐字 EXACT **全部 0%**；ground truth 2,327 节点含 **212** 个专家签核节点 |
 | [law-citation-bench](https://github.com/vickywu97/law-citation-bench) | 评测地基 | 离线零依赖、**500 题**确定性生成基准（一行提示词修复回收 **+97 分**） |
 | [compliance-triangle](https://github.com/vickywu97/compliance-triangle) | 产品 | 同一套 verify 引擎，给每条 AI 引注盖 🟢🟡🔴 章（法律 · 税务 · IP 三域） |
 | [legal-ai-watch](https://github.com/vickywu97/legal-ai-watch) | 公开榜单 | 112 题 + [gh-pages 看板](https://vickywu97.github.io/legal-ai-watch)（**当前为演示数据**，真实评测待配置密钥后由每周 CI 刷新） |
@@ -124,17 +124,6 @@
 | **诚实边界** | 各 README「已知缺口」节 + 本文件第四节 |
 
 **求职方向**：互联网 / AI / 科技 / Web3 公司**法务（in-house legal counsel）**，远程优先。税务、知产、Web3 是**差异化加分项**，不是独立方向。
-
----
-
-## ⚠️ 定稿前待本人确认
-
-1. ~~「profile README『Open to』首项是 AI 法律产品经理」~~ —— **已撤回（误报）**。经核规范 profile 仓库（`vickywu97/vickywu97`，分支 `main`）README 已是「**互联网 / AI / 科技公司 法务岗（in-house legal counsel）**」打头，且全文无 PM 表述——与「主岗位 = 法务岗」一致，**无需修改**。
-   > 误报原因：先前读取的是本地**过期 clone**（停在 `301f047`，落后于 `main` 的 `572a8f0`），其 README 仍是旧口径。**教训：核实对外事实必须查已发布的规范源，不能查本地任意副本**——这与本报告第 8 条元教训（结论的下一层）同源。
-2. **本地过期 clone 是真实风险（建议处理）**：过期 clone（`2026-07-26-16-50-27/vickywu97-profile`，停在 `301f047`）的 README 仍是 PM 打头、且落后于线上 `f1c10e6`。**普通 `git push` 会被远程以 non-fast-forward 拒绝**（不会静默覆盖线上）；但**一旦误加 `--force`，就会用旧 README 覆盖线上正确版本**。建议删除该目录，或 `git fetch && git reset --hard origin/main` 对齐后再使用。
-   > 口径更正：初稿曾写「误 push 即覆盖线上」——**夸大了**。实际需 `--force` 才会覆盖，普通 push 会被拒绝。此处按实测修正。
-3. **本文件的发布位置**：当前在规范 profile 仓库（`vickywu97/vickywu97`，分支 `main`）。建议（未执行）在 profile README 顶部加一行指向本文件，让招聘方第一眼看到总括叙事。
-4. **数字随版本演进**：本文所有数字以各仓库 README 为准；本文为叙事与导航，不构成法律 / 税务 / 专利意见。
 
 ---
 
