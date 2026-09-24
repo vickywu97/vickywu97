@@ -39,7 +39,7 @@ from pathlib import Path
 
 # ---------------------------------------------------------------- 仓库识别
 
-REPO_KEYS = ("hub", "watch", "bench", "triangle", "kb", "lcb")
+REPO_KEYS = ("hub", "watch", "bench", "triangle", "kb", "lcb", "showcase")
 
 REPO_DIR_NAMES = {
     "hub": "vickywu97-profile",
@@ -48,6 +48,7 @@ REPO_DIR_NAMES = {
     "triangle": "compliance-triangle",
     "kb": "verified-chinese-law-kb",
     "lcb": "law-citation-bench",
+    "showcase": "portfolio-showcase",
 }
 
 # 不在代码里写死任何本机绝对路径（这是公开仓库）。
@@ -61,6 +62,7 @@ CLAIM_SURFACES = {
     "watch": ("README.md",),
     "triangle": ("README.md", "README_EN.md"),
     "bench": ("README.md",),
+    "showcase": ("index.html", "README.md"),
 }
 
 

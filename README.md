@@ -13,6 +13,7 @@ I turn six years of legal / tax / IP practice into two complementary product lin
 - **① quantifiable, reproducible AI-quality evaluation & guardrails** — turning vague "the model is wrong" into a measured, fixable specification.
 - **② productivity compliance tools that actually do the work** — OSS licensing / privacy-policy review / token classification; offline, zero-dependency, CI-gateable — tools a legal team can run daily, not demos.
 
+> 🌐 **作品集展示站（可视化首页 · 推荐先看）**：[vickywu97.github.io/portfolio-showcase](https://vickywu97.github.io/portfolio-showcase/) · [源码 repo](https://github.com/vickywu97/portfolio-showcase)
 > 📖 作品集总括叙事（为什么做这些、怎么被审计出来）：[PORTFOLIO_NARRATIVE.md](./PORTFOLIO_NARRATIVE.md)
 
 ---

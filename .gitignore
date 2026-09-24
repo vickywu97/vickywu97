@@ -1,0 +1,17 @@
+# macOS 文件系统元数据（防止 git add -A 误提交进公开仓库）
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+
+# 编辑器 / 临时文件
+*.swp
+*~

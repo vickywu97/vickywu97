@@ -76,6 +76,14 @@ jobs:
           repository: vickywu97/legal-hallucination-bench
           path: legal-hallucination-bench
 
+      - name: Checkout portfolio-showcase
+        if: github.event_name != 'pull_request'
+        continue-on-error: true
+        uses: actions/checkout@v4
+        with:
+          repository: vickywu97/portfolio-showcase
+          path: portfolio-showcase
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
